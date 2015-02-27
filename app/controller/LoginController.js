@@ -3,10 +3,45 @@ Ext.define('app.controller.LoginController', {
 	alias: 'controller.login',
 
 	onLoginClick: function (){
-		localStorage.setItem("TutorialLoggedIn", true);
+		var refs = this.getReferences();
+		values = refs.form.getForm().getValues();
+		Ext.Ajax.request
+		({
+			url: 'php/login-form.php',
+			method: 'POST',
+			params: {
+				username : values.username,
+				password : values.password
+			},
 
-		this.getView().destroy();
+			success: function(xhr, params){
+				alert('Success :' + xhr.responseText);
+			},
+			failure: function (xhr, params){
+				alert('Failure :' + xhr.responseText);	
+			}
 
-		Ext.widget('app-main');
+		});
+
+		// /*
+		// localStorage.setItem("TutorialLoggedIn", true);
+
+		// this.getView().destroy();
+		// */
+		// var refs = this.getReferences();
+		// var formValues = refs.form.getForm().getValues();
+		// console.log(formValues);
+		// var user = formValues.username;
+		// var pass = formValues.password;
+
+		// // getForm().findField('username').getValue();
+		// // var pass = form.getForm().findField('password').getValue();
+		// console.info("form: " + user);
+		// Ext.Msg.alert(user, pass);
+		// formValues.username = "Ändrad";
+		// // Ext.widget('app-main');
+		// refs.form.submit();
 	}
+
+
 });

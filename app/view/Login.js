@@ -16,6 +16,7 @@ Ext.define("app.view.Login",{
 	items: {
 			xtype: 'form',
 			reference: 'form',
+			// url: 'php/login-form.php',
 		items: [
 			{
 				xtype: 'textfield',
