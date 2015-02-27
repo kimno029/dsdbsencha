@@ -2,7 +2,9 @@
     /**
      * The application's namespace.
      */
-    "name": "dsdb",
+    "name": "Deadsparrow Database",
+
+
 
     /**
      * The relative path to the appliaction's markup file (html, jsp, asp, etc.)
@@ -28,7 +30,8 @@
      * The name of the theme for this application.
      */
     
-    "theme": "ext-theme-neptune",
+    // "theme": "ext-theme-neptune",
+    "theme": "ext-theme-crisp",    
     
     /**
      * The list of required packages (with optional versions; default is "latest").
