@@ -9,15 +9,24 @@ Ext.define('app.controller.MainController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.main',
 
-    onClickButton: function () {
+    onClickLogout: function () {
 
-        // Remove the localStorage key/value
-        localStorage.removeItem('TutorialLoggedIn');
+        Ext.Ajax.request({
+            url: 'php/kill-session.php',
+            method: 'GET',
+            params: {},
+            success : function(response, sm){
+                console.log("Logged out");
+            },
 
+            failure : function(response, sm){
+                console.error("Failed to logout");
+            }
+        });
         // Remove Main View
         this.getView().destroy();
 
         // Add the Login Window
         Ext.widget('login');
-    }
+    } 
 });

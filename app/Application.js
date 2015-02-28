@@ -28,9 +28,9 @@ Ext.define('app.Application', {
         }
 
         loggedIn = localStorage.getItem("TutorialLoggedIn");
-
-        // Ext.widget(loggedIn ? 'app-main' :'login' );
-        Ext.widget('login');
+        // TODO hämta logged-in status från php
+        Ext.widget(loggedIn ? 'app-main' :'login' );
+        //Ext.widget('login');
 
     }
 }); 

@@ -30,13 +30,13 @@ Ext.define('app.view.Main', {
         bind: {
             title: '{name}'
         },
-        region: 'west',
+        region: 'north',
         html: '<ul><li>This area is commonly used for navigation, for example, using a "tree" component.</li></ul>',
         width: 250,
         split: true,
         tbar: [{
-            text: 'Button',
-            handler: 'onClickButton'
+            text: 'Logout',
+            handler: 'onClickLogout'
         }]
     },{
         region: 'center',

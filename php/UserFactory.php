@@ -1,5 +1,5 @@
 <?php
-require 'himitsu/himitsu.php';
+require_once 'himitsu/himitsu.php';
 class UserFactory
 {
 	static public function loginOk($user_name, $given_pass){
@@ -15,7 +15,7 @@ class UserFactory
 			pg_close($db_con);
 		}
 
-		if($usr->password == crypt($given_pass, $usr->salt)){
+		if(is_object($usr) && $usr->password == crypt($given_pass, $usr->salt)){
 			return TRUE;
 		}else{
 			return FALSE;
