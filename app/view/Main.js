@@ -13,6 +13,8 @@ Ext.define('app.view.Main', {
         'app.controller.MainController',
         'app.model.MainModel'
     ],
+
+
  
     xtype: 'app-main',
 
@@ -31,7 +33,7 @@ Ext.define('app.view.Main', {
             title: '{name}'
         },
         region: 'north',
-        html: '<ul><li>This area is commonly used for navigation, for example, using a "tree" component.</li></ul>',
+        // html: '<ul><li>This area is commonly used for navigation, for example, using a "tree" component.</li></ul>',
         width: 250,
         split: true,
         tbar: [{
@@ -41,9 +43,18 @@ Ext.define('app.view.Main', {
     },{
         region: 'center',
         xtype: 'tabpanel',
+        title: 'Bands',
         items:[{
-            title: 'Tab 1',
-            html: '<h2>Content appropriate for the current navigation.</h2>'
+            xtype: 'grid',
+            columns: [
+                {header: 'Id', dataIndex: 'id'},
+                {header: 'Name', dataIndex: 'name'},
+                {header: 'Contact', dataIndex: 'contact'}
+            ],
+
+            store: 'BandStore',
+            // store: Ext.data.StoreManager.lookup('BandStore'),
+            flex: 1
         }]
     }]
 });

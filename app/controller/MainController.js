@@ -28,5 +28,12 @@ Ext.define('app.controller.MainController', {
 
         // Add the Login Window
         Ext.widget('login');
-    } 
+    },
+
+    init: function() {
+        console.log("Hello from MainController" );
+        Ext.data.StoreManager.lookup('BandStore');
+        
+    }
+
 });

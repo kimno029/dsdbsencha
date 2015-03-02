@@ -10,8 +10,11 @@ Ext.define('app.Application', {
     
     name: 'app',
 
+    models: [
+        'BandModel'
+    ],
     stores: [
-        // TODO: add global / shared stores here
+        'BandStore'
     ],
     views: [
         'Login',
@@ -31,6 +34,7 @@ Ext.define('app.Application', {
         // TODO hämta logged-in status från php
         Ext.widget(loggedIn ? 'app-main' :'login' );
         //Ext.widget('login');
+        Ext.data.StoreManager.lookup('BandStore').load();
 
     }
 }); 

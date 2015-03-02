@@ -1,12 +1,26 @@
 <?php
 require_once 'classes/band.class.php';
 
-if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] === "TRUE" || TRUE){
+if(session_status() == PHP_SESSION_NONE){
+	// echo "No session active".session_name();
+	session_start();
+	
+}
+
+
+if(isset($_SESSION['is_logged_in']) && $_SESSION['is_logged_in'] == "TRUE" ){
+	// echo $_SESSION['is_logged_in'];
 	$bands = BandModel::getAllBands();
-	var_dump($bands);
+
+	echo "{'success': true ,";
+	echo "'bands': ";
+	echo json_encode($bands);
+	// var_dump($bands);
+	echo "}";
 
 }else{
-	echo "{'name' : 'failed'}";
+	// echo $_SESSION['is_logged_in'];
+	echo "{'status' : 'failed'}";
 }
 
 

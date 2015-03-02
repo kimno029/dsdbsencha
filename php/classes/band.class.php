@@ -34,9 +34,12 @@ class BandModel{
 		$result = pg_execute($db_con, "get_all_bands", array());
 
 		$bands = array();
-		while($obj = pg_fetch_object($result)){
-			$new_band = new Band($obj->id, $obj->name, $obj->contact, $obj->city, $obj->modtime);
-			$bands[] = $new_band;
+
+
+		while($obj = pg_fetch_assoc($result)){
+			// $new_band = new Band($obj->id, $obj->name, $obj->contact, $obj->city, $obj->modtime);
+			// $bands[] = $new_band;
+			$bands[] = $obj;
 		}
 
 
