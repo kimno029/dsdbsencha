@@ -1,5 +1,5 @@
 Ext.define('app.store.BandStore',{
-	extend: 'Ext.data.JsonStore',
+	extend: 'Ext.data.Store',
 	requires: [
 		'app.model.BandModel'
 	],
@@ -9,10 +9,10 @@ Ext.define('app.store.BandStore',{
 	proxy:{
 		type: 'ajax',
 		url: 'php/list-bands.php',
+		id: 'bands',
 		reader: {
 			type: 'json',
-			rootProperty: 'bands',
-			root: 'bands'
+			rootProperty: 'bands'
 		}
 	},
 	autoLoad: true

@@ -9,14 +9,15 @@ Ext.define('app.model.BandModel',{
 		{name: 'city', type: 'int'},
 		{name: 'modtime', type: 'date'}
 	]
+	// ,
 
 	// proxy: {
- //        type: 'rest',
+ //        type: 'ajax',
  //        url : 'php/list-bands.php',
+ //        id: 'bands',
  //        reader: {
 	// 		type: 'json',
-	// 		rootProperty: 'bands',
-	// 		root: 'bands'
+	// 		rootProperty: 'bands'
 	// 	}
 
  //    }
