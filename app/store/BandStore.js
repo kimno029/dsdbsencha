@@ -14,7 +14,8 @@ Ext.define('app.store.BandStore',{
 			type: 'json',
 			rootProperty: 'bands'
 		}
-	},
+	}
+	,
 	autoLoad: true
 });
 

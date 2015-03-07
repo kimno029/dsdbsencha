@@ -9,12 +9,16 @@ Ext.define('app.Application', {
     extend: 'Ext.app.Application',
     
     name: 'app',
-
+ 
     models: [
         'BandModel'
+        ,
+        'CountryModel'
     ],
     stores: [
         'BandStore'
+        ,
+        'CountryStore'
     ],
     views: [
         'Login',
@@ -33,7 +37,7 @@ Ext.define('app.Application', {
         loggedIn = localStorage.getItem("TutorialLoggedIn");
         // TODO hämta logged-in status från php
         Ext.widget(loggedIn ? 'app-main' :'login' );
-        //Ext.widget('login');
+        Ext.widget('login');
         Ext.data.StoreManager.lookup('BandStore').load();
 
     }

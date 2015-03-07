@@ -32,7 +32,7 @@ Ext.define('app.controller.MainController', {
 
     init: function() {
         console.log("Hello from MainController" );
-        Ext.data.StoreManager.lookup('BandStore');
+        Ext.data.StoreManager.lookup('BandStore').load();
         
     }
 

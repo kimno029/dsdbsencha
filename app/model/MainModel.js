@@ -4,7 +4,7 @@ Ext.define('app.model.MainModel', {
     alias: 'model.main',
 
     onClickButton: function (){
-    	localStorage.removeItem('TutorialLoggedIn');
+    	// localStorage.removeItem('TutorialLoggedIn');
 
     	this.getView().destroy();
 

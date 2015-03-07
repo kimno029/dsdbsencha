@@ -11,7 +11,9 @@ Ext.define('app.view.Main', {
 
     requires: [
         'app.controller.MainController',
-        'app.model.MainModel'
+        'app.model.MainModel',
+        'app.model.BandModel',
+        'app.model.CountryModel'
     ],
 
 
@@ -33,8 +35,7 @@ Ext.define('app.view.Main', {
             title: '{name}'
         },
         region: 'north',
-        // html: '<ul><li>This area is commonly used for navigation, for example, using a "tree" component.</li></ul>',
-        width: 250,
+        // height: 150,
         split: true,
         tbar: [{
             text: 'Logout',
@@ -43,18 +44,52 @@ Ext.define('app.view.Main', {
     },{
         region: 'center',
         xtype: 'tabpanel',
-        title: 'Bands',
-        items:[{
-            xtype: 'grid',
-            columns: [
-                {header: 'Id', dataIndex: 'id'},
-                {header: 'Name', dataIndex: 'name'},
-                {header: 'Contact', dataIndex: 'contact'}
-            ],
+        bodyPadding: 10,
+        items:[
+            {
+                xtype: 'grid',
+                title: 'Bands',            
+                store: 'BandStore',
+                columns: [
+                    {header: 'Id', dataIndex: 'id'},
+                    {header: 'Name', dataIndex: 'name'},
+                    {header: 'Contact', dataIndex: 'contact'}
+                ],
 
-            store: 'BandStore',
-            // store: Ext.data.StoreManager.lookup('BandStore'),
-            flex: 1
-        }]
+                // flex: 1
+            },{
+                xtype: 'panel',
+                title: 'New Band',
+                items:[{
+                    xtype: 'form',
+                    reference: 'newBandForm',
+                    title: 'New Band',
+                    // flex: 1,
+                    items:[
+                        {
+                            xtype: 'textfield',
+                            name: 'newbandContact',
+                            fieldLabel: 'Contact',
+                            allowBlank: false 
+                        },
+                        {
+                            xtype: 'textfield',
+                            name: 'newBandName',
+                            fieldLabel: 'Name',
+                            allowBlank: false
+                        }
+                        ,{
+                            xtype: 'combobox',
+                            store: 'CountryStore',
+                            name: 'newbandCity',
+                            fieldLabel: 'Country',
+                            valueField: 'country_code',
+                            displayField: 'country_name',
+                            typeAhead: true
+                         }
+                    ]
+                }]
+            }
+        ]
     }]
 });
